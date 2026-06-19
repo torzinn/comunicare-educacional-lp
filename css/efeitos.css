@@ -1,0 +1,259 @@
+/* Configurações Gerais e Reset de Margens */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-primaria: #13af56;       /* Verde institucional da Comunicare */
+    --cor-primaria-escura: #0e8741;/* Tom mais escuro para o gradiente */
+    --cor-texto-escuro: #2c3e50;   /* Títulos principais */
+    --cor-texto-claro: #7f8c8d;    /* Parágrafos e descrições */
+    --cor-fundo-leve: #f8f9fa;     /* Fundo dos cards e rodapé */
+    --cor-branca: #ffffff;
+    --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --sombra-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    background-color: #f4f6f9;
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container Principal da Página */
+.boas-vindas-container {
+    max-width: 100%; /* ANTES ESTAVA 1100px. Agora ele estica até o limite da tela */
+    margin: 0 auto;
+    background-color: var(--cor-branca);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+/* Banner Superior (Hero Section) com Gradiente */
+/* Transforma o banner numa faixa fina com os elementos lado a lado */
+.hero-banner {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+    color: var(--cor-branca);
+    padding: 15px 40px; /* Reduzimos muito o espaço em cima e embaixo (15px) */
+    
+    /* O SEGREDO ESTÁ AQUI: Flexbox para colocar logo e texto lado a lado */
+    display: flex;
+    align-items: center; /* Centraliza a logo e o texto verticalmente */
+    justify-content: flex-start; /* Alinha tudo à esquerda */
+    gap: 30px; /* Dá um espaço entre a logo e os textos */
+    text-align: left; /* O texto agora fica alinhado à esquerda */
+}
+
+/* Ajusta a logo para a nova posição */
+.hero-logo {
+    max-width: 140px; /* Tamanho contido */
+    height: auto;
+    margin-bottom: 0; /* Remove a margem de baixo que existia antes */
+    flex-shrink: 0; /* Impede a logo de ser esmagada se a tela diminuir */
+}
+
+/* Ajusta o contêiner dos textos para não quebrar o layout */
+.hero-banner-textos {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título menor e sem margem gigante */
+.hero-banner h1 {
+    font-size: 1.5rem; /* Título mais compacto */
+    margin-bottom: 2px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Subtítulo mais discreto */
+.hero-banner p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Configuração Padrão das Seções */
+section {
+    padding: 40px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Detalhe visual: barra vertical verde ao lado dos títulos */
+section h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 5px;
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+}
+
+.section-description {
+    color: var(--cor-texto-claro);
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* Incorporação Responsiva do Vídeo (Mantém a proporção 16:9) */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--sombra-card);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Grid de Organização dos Cards de Passos */
+.passos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.passo-card {
+    background-color: var(--cor-fundo-leve);
+    padding: 30px 25px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efeito Hover nos Cards */
+.passo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-card);
+    border-color: var(--cor-primaria);
+}
+
+/* Indicador Numérico dos Cards */
+.passo-numero {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.passo-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto-escuro);
+}
+
+.passo-card p {
+    font-size: 0.95rem;
+    color: var(--cor-texto-claro);
+}
+
+a.passo-card {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    cursor: pointer;
+}
+
+
+a.passo-card h3, 
+a.passo-card p, 
+a.passo-card strong {
+    text-decoration: none;
+}
+
+.passo-card strong {
+    color: var(--cor-texto-escuro);
+}
+
+/* Seção de Suporte (Rodapé da Página) */
+.suporte-section {
+    padding: 40px;
+    text-align: center;
+    background-color: var(--cor-fundo-leve);
+}
+
+.suporte-section h2::before {
+    display: none; /* Remove a barra lateral do título no rodapé */
+}
+
+.suporte-section h2 {
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.suporte-section p {
+    color: var(--cor-texto-claro);
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+}
+
+/* Botão de Ação Estilizado para o WhatsApp */
+.btn-suporte {
+    display: inline-block;
+    background-color: #25d366; /* Cor padrão do WhatsApp */
+    color: var(--cor-branca);
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-suporte:hover {
+    background-color: #1ebd59;
+    transform: scale(1.03);
+}
+
+/* Ajustes de Responsividade para Telas Pequenas */
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 40px 20px;
+    }
+    
+    .hero-banner h1 {
+        font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 25px 20px;
+    }
+    
+    .passos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
