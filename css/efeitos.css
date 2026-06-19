@@ -257,3 +257,44 @@ a.passo-card strong {
     }
 }
 
+/* =========================================
+   RESPONSIVIDADE (Celulares e Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. O banner deixa de ser uma faixa e passa a empilhar a logo em cima do texto */
+    .hero-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 15px;
+    }
+
+    /* 2. Centralizamos os textos que antes estavam alinhados à esquerda */
+    .hero-banner-textos {
+        align-items: center;
+    }
+
+    /* 3. Reduzimos levemente a logo e os textos para caberem bem na tela */
+    .hero-logo {
+        max-width: 120px; 
+    }
+
+    .hero-banner h1 {
+        font-size: 1.4rem; 
+    }
+
+    .hero-banner p {
+        font-size: 0.95rem;
+    }
+
+    /* 4. Ajustamos os espaçamentos gerais das seções para não encostarem nas bordas do celular */
+    section {
+        padding: 25px 15px;
+    }
+
+    /* 5. A seção de vídeos também precisa de um respiro menor no celular */
+    .video-wrapper {
+        border-radius: 6px;
+    }
+}
